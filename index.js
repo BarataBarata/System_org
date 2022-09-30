@@ -4,6 +4,7 @@ import http from "http";
 import express from "express";
 import ejs from "ejs";
 import { receiveMessageOnPort } from 'worker_threads';
+import { inflate } from 'zlib';
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -30,6 +31,16 @@ io.on('connection', socket => {
     socket.on("sendMessage", data => {
         messages.push(data);
         socket.broadcast.emit("receivedMessage", data);
+    });
+
+    socket.on("sendData", data => {
+
+        if (data.Email == "milagre@gmail.com" && data.Password == "milagre") {
+            socket.emit("confirmation", "OK");
+        } else {
+            socket.emit("confirmation", "NO");
+        }
+
     });
 });
 

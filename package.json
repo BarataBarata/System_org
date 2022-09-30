@@ -50,6 +50,7 @@
         "inherits": "^2.0.4",
         "ipaddr.js": "^1.9.1",
         "jake": "^10.8.5",
+        "mdb-ui-kit": "^5.0.0",
         "media-typer": "^0.3.0",
         "merge-descriptors": "^1.0.1",
         "methods": "^1.1.2",
