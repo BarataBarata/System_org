@@ -11,25 +11,30 @@
 </head>
 
 <body>
-    <div class="display-cover">
-        <video autoplay></video>
-        <canvas class="d-none"></canvas>
+    <video id="player" autoplay></video>
+    <button id="capture">Capture</button>
+    <canvas id="canvas" width=320 height=240></canvas>
+    <script>
+        const player = document.getElementById('player');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const captureButton = document.getElementById('capture');
 
-        <div class="video-options">
-            <select name="" id="" class="custom-select">
-            <option value="">Select camera</option>
-        </select>
-        </div>
+        const constraints = {
+            video: true,
+        };
 
-        <img class="screenshot-image d-none" alt="">
+        captureButton.addEventListener('click', () => {
+            // Draw the video frame to the canvas.
+            context.drawImage(player, 0, 0, canvas.width, canvas.height);
+        });
 
-        <div class="controls">
-            <button class="btn btn-danger play" title="Play"><i data-feather="play-circle"></i></button>
-            <button class="btn btn-info pause d-none" title="Pause"><i data-feather="pause"></i></button>
-            <button class="btn btn-outline-success screenshot d-none" title="ScreenShot"><i data-feather="image"></i></button>
-        </div>
-    </div>
-
+        // Attach the video stream to the video element and autoplay.
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then((stream) => {
+                player.srcObject = stream;
+            });
+    </script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="scri.js"></script>
 </body>
