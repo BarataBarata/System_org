@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run index.js 
+ node index.js 
