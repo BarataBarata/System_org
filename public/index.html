@@ -12,6 +12,7 @@
 
 <body>
     <video id="player" autoplay></video>
+    <input type="file" accept="image/*;capture=camera">
     <button id="capture">Capture</button>
     <canvas id="canvas" width=320 height=240></canvas>
     <script>
@@ -21,13 +22,8 @@
         const captureButton = document.getElementById('capture');
 
         const constraints = {
-            audio: true,
-            video: {
-                facingMode: {
-                    exact: "environment"
-                }
-            }
-        }
+            video: true,
+        };
 
         captureButton.addEventListener('click', () => {
             // Draw the video frame to the canvas.
