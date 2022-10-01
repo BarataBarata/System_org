@@ -21,8 +21,13 @@
         const captureButton = document.getElementById('capture');
 
         const constraints = {
-            video: true,
-        };
+            audio: true,
+            video: {
+                facingMode: {
+                    exact: "environment"
+                }
+            }
+        }
 
         captureButton.addEventListener('click', () => {
             // Draw the video frame to the canvas.
