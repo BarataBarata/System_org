@@ -1,38 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
-    <!--Título-->
-    <title>Camera Test</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Apenas um teste" />
-
-    <!--OpenType-->
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="" />
-
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Camera</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
 <body>
-    <div class="area">
-        <video autoplay="true" id="webCamera" style="display: block;">
-			</video>
-        <form target="POST">
-            <textarea type="text" id="base_img" name="base_img" class="collapse"></textarea>
-            <button id="btnTirarFoto" style="display: block;" type="button" onclick="takeSnapShot();vidOff()">Tirar foto</button>
-        </form>
-        <img id="imagemConvertida" style="display: block;" />
-        <p id="repetirfoto" class="" style="display: none;"><button href="#" type="button" onclick="repetirfoto(); loadCamera()">Repetir foto</button></p>
-        <!--Scripts-->
-        <script src="scri.js"></script>
-    </div>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-four-fifths">
+                    <h1 class="title">
+                        JavaScript Camera
+                    </h1>
+                    <video autoplay id="video"></video>
+                    <button class="button is-hidden" id="btnPlay">
+            <span class="icon is-small">
+              <i class="fas fa-play"></i>
+            </span>
+          </button>
+                    <button class="button" id="btnPause">
+            <span class="icon is-small">
+              <i class="fas fa-pause"></i>
+            </span>
+          </button>
+                    <button class="button is-success" id="btnScreenshot">
+            <span class="icon is-small">
+              <i class="fas fa-camera"></i>
+            </span>
+          </button>
+                    <button class="button" id="btnChangeCamera">
+            <span class="icon">
+              <i class="fas fa-sync-alt"></i>
+            </span>
+            <span>Switch camera</span>
+          </button>
+                </div>
+                <div class="column">
+                    <h2 class="title">Screenshots</h2>
+                    <div id="screenshots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                By <a href="https://www.webdevdrops.com/">Douglas Matoso</a> | <a href="https://github.com/doug2k1/javascript-camera">Source code</a>
+            </p>
+        </div>
+    </footer>
+
+    <canvas class="is-hidden" id="canvas"></canvas>
+    <script src="scri.js"></script>
 </body>
 
 </html>
