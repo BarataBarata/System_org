@@ -45,8 +45,7 @@
 
 .register .register-right ul .nav-item:a.active~#myTabContent #login,
 .register .register-right ul .nav-item:a.active~#myTabContent .content-2,
-.register .register-right ul .nav-item:a.active~#myTabContent #newuser,
-{
+.register .register-right ul .nav-item:a.active~#myTabContent #newuser {
     -webkit-transform: translateX(0px);
     -moz-transform: translateX(0px);
     -o-transform: translateX(0px);
