@@ -15,7 +15,7 @@ socket.on('previewsMessage', function(messages) {
 
 socket.on('confirmation', function(confirmation) {
     if (confirmation == "OK") {
-        window.location.href = "http://localhost:8383/chat.html";
+        window.location.href = IP + "/chat.html";
     } else {
         $('.alert').append('<div><strong> Email ou Senha invalido</div>');
     }
