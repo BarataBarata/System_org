@@ -1,4 +1,4 @@
-var socket = io('http://localhost:8383');
+var socket = io(IP);
 
 function renderMessage(message) {
     $('.message').append('<div ><strong>' + message.author + '</strong>:' + message.message + '</div>');
