@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <video id="player" autoplay></video>
+    <input type="file" accept="image/*;capture=camera">
+    <button id="capture">Capture</button>
+    <canvas id="canvas" width=320 height=240></canvas>
+    <script>
+        const player = document.getElementById('player');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const captureButton = document.getElementById('capture');
+
+        const constraints = {
+            video: true,
+        };
+
+        captureButton.addEventListener('click', () => {
+            // Draw the video frame to the canvas.
+            context.drawImage(player, 0, 0, canvas.width, canvas.height);
+        });
+
+        // Attach the video stream to the video element and autoplay.
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then((stream) => {
+                player.srcObject = stream;
+            });
+    </script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="scri.js"></script>
+</body>
+
+</html>
