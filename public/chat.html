@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.2/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +14,7 @@
 </head>
 
 <body>
+
     <div class="container">
         <div class="leftSide">
             <div class="header">
@@ -451,22 +456,20 @@
 
             </div>
             <div class="chatBox">
-                <div class="message my_message">
-                    <p> HI AREJDJDJD DDHDHHD DDHDHHHD<br><span>12:09</span></p>
-                </div>
-                <div class="message frnd_message">
-                    <p>HI how are you ? olal como estas estkdjd dmdnnsn dndndjj smsmjdj sjsjdj sjsjdjd sjsjdjhjs dhdhdhds dhdhhsh dhshshdg sjskdhghwjhs dhdsh
-                        <br><span>12:09</span></p>
-                </div>
+
             </div>
 
             <div class="chatBox_input">
                 <io-icon name="happy-outline"></io-icon>
                 <io-icon name="attach-outline"></io-icon>
-                <input type="text" placeholder="SearchType a message">
+                <input type="text" placeholder="SearchType a message" id="textWritte" name="message">
                 <io-icon name="mic"></io-icon>
+                <button onclick="enviar()">eviar</button>
             </div>
         </div>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="script.js"></script>
 
 
     </div>

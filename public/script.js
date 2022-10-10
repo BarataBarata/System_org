@@ -1,7 +1,7 @@
 var socket = io(IP);
 
 function renderMessage(message) {
-    $('.message').append('<div ><strong>' + message.author + '</strong>:' + message.message + '</div>');
+    $('.chatBox').append('<div class="message frnd_message"> <p>' + message.message + '<br><span>12:09</span></p></div><br>');
 }
 
 
@@ -10,7 +10,6 @@ socket.on('previewsMessage', function(messages) {
     for (message of messages) {
         renderMessage(message);
     }
-
 });
 
 socket.on('confirmation', function(confirmation) {
@@ -28,14 +27,14 @@ socket.on('receivedMessage', function(message) {
 
 
 
-$('#chat').submit(function(ev) {
-    ev.preventDefault();
+function enviar(ev) {
     var message = $('input[name=message]').val();
-    var author = $('input[name=author]').val();
+    var author = "$('input[name=author]').val();"
     var MessageObject = { author: author, message: message, };
     renderMessage(MessageObject);
     socket.emit('sendMessage', MessageObject);
-});
+
+}
 
 $('#barata').submit(function(ev) {
     ev.preventDefault();
