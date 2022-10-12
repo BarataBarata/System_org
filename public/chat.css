@@ -6,6 +6,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.imageSelected {
+    display: block;
+}
+
 body {
     display: flex;
     justify-content: center;

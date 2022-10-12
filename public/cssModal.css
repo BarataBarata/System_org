@@ -1,0 +1,30 @@
+.modall {
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50% -50%);
+    display: none;
+    animation: animate;
+    animation-duration: 800ms;
+}
+
+@keyframes animate {
+    from {
+        opacity: 1;
+    }
+    from {
+        opacity: 0;
+    }
+}
+
+.fechar {
+    width: 30px;
+    height: 30px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    float: right;
+}

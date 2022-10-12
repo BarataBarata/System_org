@@ -1,5 +1,9 @@
 /* register */
 
+.imageSelected {
+    display: none;
+}
+
 .tab-content>.tab-pane {
     display: block;
 }

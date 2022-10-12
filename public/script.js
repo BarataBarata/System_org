@@ -1,10 +1,13 @@
 var socket = io(IP);
+let user;
 
 function renderMessage(message) {
     $('.chatBox').append('<div class="message frnd_message"> <p>' + message.message + '<br><span>12:09</span></p></div><br>');
 }
 
-
+socket.on('user', function(user) {
+    $('#user').append('<h4>' + user + '<br><span>Online</span></span></h4>');
+});
 
 socket.on('previewsMessage', function(messages) {
     for (message of messages) {
@@ -13,6 +16,7 @@ socket.on('previewsMessage', function(messages) {
 });
 
 socket.on('confirmation', function(confirmation) {
+    window.location.href = IP + "/chat.html";
     if (confirmation == "OK") {
         window.location.href = IP + "/chat.html";
     } else {
@@ -24,8 +28,6 @@ socket.on('confirmation', function(confirmation) {
 socket.on('receivedMessage', function(message) {
     renderMessage(message);
 })
-
-
 
 function enviar(ev) {
     var message = $('input[name=message]').val();
@@ -39,6 +41,7 @@ function enviar(ev) {
 $('#barata').submit(function(ev) {
     ev.preventDefault();
     var email = $('input[name=Email]').val();
+
     var password = $('input[name=Password]').val();
     var MessageObject = { Email: email, Password: password, };
     renderMessage(MessageObject);
@@ -126,4 +129,18 @@ function testLocalStorageData() {
     localStorage.setItem("PROFILE_IMG_SRC", "//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120");
     localStorage.setItem("PROFILE_NAME", "César Izquierdo Tello");
     localStorage.setItem("PROFILE_REAUTH_EMAIL", "oneaccount@gmail.com");
+}
+
+
+
+function acao() {
+    alert("skkkshhhhhhh");
+    let modall = document.querySelector(".modall");
+    modall.style.display = "block";
+}
+
+function fechar() {
+    alert("skkks");
+    let modall = document.querySelector(".modall");
+    modall.style.display = "none";
 }

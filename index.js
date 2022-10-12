@@ -8,6 +8,7 @@ import { inflate } from 'zlib';
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
+let author = "";
 
 const port = 8383;
 // ESPECIFICANDO O DIRETORIO PARA A CRIACAO DAS PASTAS
@@ -25,23 +26,28 @@ app.use('/', (req, res) => {
 let messages = [];
 
 io.on('connection', socket => {
-    console.log('socket connected:' + socket.id);
+    console.log('socket connected:' + author + "   ==    " + socket.id);
+    socket.emit("user", author);
 
     socket.emit("previewsMessage", messages);
     socket.on("sendMessage", data => {
         messages.push(data);
         socket.broadcast.emit("receivedMessage", data);
+
     });
 
     socket.on("sendData", data => {
 
-        if (data.Email == "milagre@gmail.com" && data.Password == "milagre") {
+        if (data.Email == "milagre" && data.Password == "milagre") {
             socket.emit("confirmation", "OK");
+            author = data.Email;
         } else {
             socket.emit("confirmation", "NO");
         }
 
     });
+
+
 });
 
 
